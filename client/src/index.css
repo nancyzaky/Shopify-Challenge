@@ -13,7 +13,7 @@ code {
     monospace;
 }
 .image {
-  width: 90%;
+  width: 99%;
   height: 70%;
 }
 .img-cont:hover {
@@ -23,12 +23,12 @@ code {
   transition: transform 0.2s;
 }
 .img-cont {
-  width: 30%;
+  width: 28%;
   height: 100%;
-  margin-bottom: 10%;
+  margin-bottom: 4%;
   margin-left: 2%;
   justify-content: center;
-  /* background-color: grey; */
+  padding: 1rem 1rem;
 }
 .container {
   list-style: none;
@@ -57,4 +57,10 @@ h1 {
   text-align: left;
   color: rgb(71, 71, 69);
   padding-left: 1rem;
+}
+
+.icon {
+  color: red;
+  font-size: 2rem;
+  position: relative;
 }
