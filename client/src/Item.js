@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { BsSuitHeartFill } from "react-icons/bs";
 
 const Item = ({ item }) => {
   const alter =
@@ -7,16 +8,33 @@ const Item = ({ item }) => {
   return (
     <li className="img-cont">
       <h4>{item.title}</h4>
+      {clicked && (
+        <span className="icon">
+          <BsSuitHeartFill />
+        </span>
+      )}
       <img src={item.hdurl || alter} alt="pic" className="image" />
-      <h4>{item.date}</h4>
-      <button
-        className="btn"
-        onClick={() => {
-          setClicked(!clicked);
+
+      <section
+        style={{
+          height: "20%",
+          display: "grid",
+          justifyContent: "center",
+          textAlign: "center",
         }}
       >
-        {clicked ? `Unlike` : `Like`}
-      </button>
+        {/* {clicked && <h4>Liked</h4>} */}
+        <h4>{item.date}</h4>
+
+        <button
+          className="btn"
+          onClick={() => {
+            setClicked(!clicked);
+          }}
+        >
+          {clicked ? `Unlike` : `Like`}
+        </button>
+      </section>
     </li>
   );
 };

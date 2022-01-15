@@ -19,14 +19,26 @@ const Home = () => {
     fetchData();
   }, []);
   return (
-    <>
+    <div
+      style={{
+        display: "grid",
+        height: "100%",
+        width: "100%",
+        justifyContent: "center",
+        textAlign: "center",
+        alignItems: "center",
+      }}
+    >
+      <li>
+        <h1>Spacetagram</h1>
+      </li>
       {loading && <Loading />}
-      <div className="container">
+      <ul className="container">
         {data.map((item, index) => {
           return <Item key={index} item={item} />;
         })}
-      </div>
-    </>
+      </ul>
+    </div>
   );
 };
 
