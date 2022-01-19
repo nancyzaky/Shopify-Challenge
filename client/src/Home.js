@@ -1,9 +1,21 @@
 import React, { useState, useEffect } from "react";
 import Item from "./Item";
 import Loading from "./Loading";
+import ModalSmall from "./ModalSmall";
+
 const Home = () => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [openModal, setOpenModal] = useState(false);
+  const [chosenItem, setChosenItem] = useState({});
+
+  const showDescription = (item) => {
+    setOpenModal(true);
+    setChosenItem(item);
+  };
+  const closeModal = () => {
+    setOpenModal(false);
+  };
   const fetchData = () => {
     setLoading(true);
     fetch(
@@ -32,10 +44,15 @@ const Home = () => {
       <li>
         <h1>Spacetagram</h1>
       </li>
+      {openModal && (
+        <ModalSmall chosenItem={chosenItem} closeModal={closeModal} />
+      )}
       {loading && <Loading />}
       <ul className="container">
         {data.map((item, index) => {
-          return <Item key={index} item={item} />;
+          return (
+            <Item key={index} item={item} showDescription={showDescription} />
+          );
         })}
       </ul>
     </div>
